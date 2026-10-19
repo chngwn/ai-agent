@@ -1,5 +1,7 @@
 from openai import OpenAI
+from dotenv import load_dotenv
 
+load_dotenv()
 client = OpenAI()   # OpenAI 클라이언트 초기화
 
 
@@ -7,7 +9,7 @@ def get_responses(prompt, model='gpt-5-mini'):
     #1 입력된 프롬프트에 대한 AI 응답을 받아오는 함수
     response = client.responses.create(
         model=model,    # 사용할 모델 지정
-        toools=[{"type": "web_search_preview"}],   #2 웹 검색 도구 활성화
+        tools=[{"type": "web_search_preview"}],   #2 웹 검색 도구 활성화
         input=prompt    # 사용자 입력 전달
     )
 

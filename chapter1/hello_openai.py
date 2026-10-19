@@ -15,7 +15,7 @@ def get_chat_completion(prompt, model="gpt-5-mini"):
     # OpenAI 챗 컴플리션 API를 사용하여 AI의 응답을 받는 함수
 
     # 챗 컴플리션 API 호출
-    response = client.chat.completions.reate(
+    response = client.chat.completions.create(
         model=model,
         messages=[
             {"role": "system", "content": "당신은 친절하고 도움이 되는 AI 비서입니다."}, 
