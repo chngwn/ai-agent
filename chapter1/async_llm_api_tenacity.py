@@ -36,7 +36,7 @@ async def simulate_random_failure():
         wait=wait_exponential(multiplier=1, min=2, max=10),  # 지수적 백오프: 2초, 4초, 8초...
         retry=retry_if_exception_type(),    # 모든 예외에 대해 재시도
         before_sleep=lambda retry_state: logger.warning(
-            f"API 호출 실패: {retry_state.outcome.exception()}, {retry_state.attempt_umber}번째 재시도 중..."
+            f"API 호출 실패: {retry_state.outcome.exception()}, {retry_state.attempt_number}번째 재시도 중..."
         )
 )
 
@@ -76,7 +76,7 @@ async def main():
     claude_task = call_async_claude(prompt)
 
     try:
-        # gather는 전체 작업 중 하나라도 실폐하면 예외 발생
+        #3 gather는 전체 작업 중 하나라도 실폐하면 예외 발생
         openai_response, claude_response = await asyncio.gather(
             openai_task, claude_task, return_exceptions=False
         )
