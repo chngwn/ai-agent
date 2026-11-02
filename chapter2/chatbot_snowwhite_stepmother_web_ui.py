@@ -85,7 +85,7 @@ async def chat(message: str = Form(...)):
     global previous_response_id, messages
 
     # 사용자 메시지 저장
-    messages.appent({"role": "user", "content": message})
+    messages.append({"role": "user", "content": message})
 
     result = chatbot_response(message, previous_response_id)
     previous_response_id = result.id
@@ -100,5 +100,5 @@ async def chat(message: str = Form(...)):
 # 8 애플리케이션을 uvicorn을 사용하여 실행
 if __name__ == "__main__":
     uvicorn.run(
-        "chatbot_snowwhite-stepmother_web_ui:app", host="127.0.0.1", port=8000, reload=True
-    )
+        "chatbot_snowwhite_stepmother_web_ui:app", host="127.0.0.1", port=8000, reload=True
+        )
